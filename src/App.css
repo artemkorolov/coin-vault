@@ -20,3 +20,31 @@ p {
 	margin: 0 auto;
 	line-height: 1.6;
 }
+
+.coin-list{
+	min-width: 400px;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+.coin-item{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 10px 0;
+	border-bottom: 1px solid #333;
+}
+
+.coin-item img{
+	margin-right: 15px;
+	width: 30px;
+}
+
+.coin-name{
+	text-align: left;
+	flex: 1;
+}
+
+.coin-price{
+	font-weight: 600;
+}
