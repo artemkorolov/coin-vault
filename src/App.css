@@ -1,0 +1,22 @@
+.app-container {
+	text-align: center;
+	padding: 4rem 2rem;
+}
+
+h1 {
+	background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-size: 4rem;
+	font-weight: 800;
+	margin-bottom: 1rem;
+	letter-spacing: -0.02em;
+}
+
+p {
+	color: #889988;
+	font-size: 1.1rem;
+	max-width: 400px;
+	margin: 0 auto;
+	line-height: 1.6;
+}
