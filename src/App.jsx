@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
+import Coin from './components/Coin'
 import './App.css'
 
 function App() {
@@ -29,16 +30,20 @@ function App() {
   return (
     <div className='app-container'>
       <h1>CoinVault</h1>
+
       {loading ? (
         <p>Fetching market data...</p>
       ) : (
         <div className="coin-list">
           {coins && coins.map((coin) => (
-            <div key={coin.id} className="coin-item">
-              <img src={coin.image} alt={coin.name} />
-              <span className="coin-name">{coin.name}</span>
-              <span className="coin-price">${coin.current_price?.toLocaleString()}</span>
-            </div>
+            coin.id && (
+              <Coin
+                key={coin.id}
+                image={coin.image}
+                name={coin.name}
+                price={coin.current_price}
+              />
+            )
           ))}
         </div>
       )}
