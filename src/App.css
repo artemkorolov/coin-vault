@@ -21,13 +21,13 @@ p {
 	line-height: 1.6;
 }
 
-.coin-list{
+.coin-list {
 	min-width: 400px;
 	margin: 0 auto;
 	padding: 20px;
 }
 
-.coin-item{
+.coin-item {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -35,16 +35,34 @@ p {
 	border-bottom: 1px solid #333;
 }
 
-.coin-item img{
+.coin-item img {
 	margin-right: 15px;
 	width: 30px;
 }
 
-.coin-name{
+.coin-name {
 	text-align: left;
 	flex: 1;
 }
 
-.coin-price{
+.coin-price {
 	font-weight: 600;
+}
+
+.search-container {
+	margin-bottom: 20px;
+}
+
+.search-input {
+	padding: 12px;
+	background: #1a1a1a;
+	border: 1px solid #333;
+	border-radius: 8px;
+	color: white;
+	font-size: 16px;
+	outline: none;
+}
+
+.search-input:focus {
+	border-color: #4ade80;
 }
