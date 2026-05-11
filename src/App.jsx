@@ -1,10 +1,12 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import Coin from './components/Coin'
+import Search from './components/Search'
 import './App.css'
 
 function App() {
   const [coins, setCoins] = useState([{}])
+  const [search, setSearch] = useState('')
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -27,15 +29,21 @@ function App() {
     getCryptoData()
   }, [])
 
+  const filteredCoins = coins.filter(coin => {
+    return coin.name?.toLowerCase().includes(search.toLowerCase())
+  })
+
   return (
     <div className='app-container'>
       <h1>CoinVault</h1>
+
+      <Search handleSearch={setSearch} />
 
       {loading ? (
         <p>Fetching market data...</p>
       ) : (
         <div className="coin-list">
-          {coins && coins.map((coin) => (
+          {filteredCoins.map((coin) => (
             coin.id && (
               <Coin
                 key={coin.id}
