@@ -7,6 +7,7 @@ import './App.css'
 function App() {
   const [coins, setCoins] = useState([{}])
   const [search, setSearch] = useState('')
+  const [sortBy, setSortBy] = useState('rank')
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -33,17 +34,40 @@ function App() {
     return coin.name?.toLowerCase().includes(search.toLowerCase())
   })
 
+  const sortedCoins = [...filteredCoins].sort((a, b) => {
+    if (sortBy === 'price') {
+      return b.current_price - a.current_price;
+    }
+    if (sortBy === 'name') {
+      return a.name.localeCompare(b.name);
+    }
+    return 0;
+  })
+
   return (
     <div className='app-container'>
       <h1>CoinVault</h1>
 
       <Search handleSearch={setSearch} />
 
+      <div className="sort-buttons">
+        <button
+          className={sortBy === 'price' ? 'sort-btn active' : 'sort-btn'}
+          onClick={() => setSortBy('price')}>
+          Sort by Price
+        </button>
+        <button
+          className={sortBy === 'name' ? 'sort-btn active' : 'sort-btn'}
+          onClick={() => setSortBy('name')}>
+          Sort by Name
+        </button>
+      </div>
+
       {loading ? (
         <p>Fetching market data...</p>
       ) : (
         <div className="coin-list">
-          {filteredCoins.map((coin) => (
+          {sortedCoins.map((coin) => (
             coin.id && (
               <Coin
                 key={coin.id}
