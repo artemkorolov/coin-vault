@@ -9,6 +9,7 @@ function Coin({ image, name, price, priceChange }) {
 			<span className="coin-name">{name}</span>
 			<span className="coin-price">${price?.toLocaleString()}</span>
 			<span className={`coin-percent ${priceColor}`}>
+				{priceChange > 0 ? "+" : ""}
 				{priceChange.toFixed(2)}%
 			</span>
 		</div>
