@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import Coin from './components/Coin'
+import CoinList from './components/CoinList'
 import Search from './components/Search'
 import SortButtons from './components/SortButtons'
 import './App.css'
@@ -56,18 +56,7 @@ function App() {
       {loading ? (
         <p>Fetching market data...</p>
       ) : (
-        <div className="coin-list">
-          {sortedCoins.map((coin) => (
-            coin.id && (
-              <Coin
-                key={coin.id}
-                image={coin.image}
-                name={coin.name}
-                price={coin.current_price}
-              />
-            )
-          ))}
-        </div>
+        <CoinList items={sortedCoins} />
       )}
     </div>
   )
