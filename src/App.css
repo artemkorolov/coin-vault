@@ -93,3 +93,16 @@ p {
 	color: #000;
 	border-color: #4ade80;
 }
+
+.green{
+	color: #11d811;
+}
+
+.red{
+	color: #f00606;
+}
+
+.coin-percent{
+	margin-left: 10px;
+}
+

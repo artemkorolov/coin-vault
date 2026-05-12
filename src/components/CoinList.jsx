@@ -11,6 +11,7 @@ function CoinList({ items }) {
 						image={coin.image}
 						name={coin.name}
 						price={coin.current_price}
+						priceChange={coin.price_change_percentage_24h}
 					/>
 				)
 			))}
