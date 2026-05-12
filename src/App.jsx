@@ -2,11 +2,13 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import Coin from './components/Coin'
 import Search from './components/Search'
+import SortButtons from './components/SortButtons'
 import './App.css'
 
 function App() {
   const [coins, setCoins] = useState([{}])
   const [search, setSearch] = useState('')
+  const [sortBy, setSortBy] = useState('rank')
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -33,17 +35,29 @@ function App() {
     return coin.name?.toLowerCase().includes(search.toLowerCase())
   })
 
+  const sortedCoins = [...filteredCoins].sort((a, b) => {
+    if (sortBy === 'price') {
+      return b.current_price - a.current_price;
+    }
+    if (sortBy === 'name') {
+      return a.name.localeCompare(b.name);
+    }
+    return 0;
+  })
+
   return (
     <div className='app-container'>
       <h1>CoinVault</h1>
 
       <Search handleSearch={setSearch} />
 
+      <SortButtons sortBy={sortBy} setSortBy={setSortBy} />
+
       {loading ? (
         <p>Fetching market data...</p>
       ) : (
         <div className="coin-list">
-          {filteredCoins.map((coin) => (
+          {sortedCoins.map((coin) => (
             coin.id && (
               <Coin
                 key={coin.id}
