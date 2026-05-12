@@ -46,18 +46,37 @@ function App() {
   })
 
   return (
-    <div className='app-container'>
-      <h1>CoinVault</h1>
+    <div className='admin-wrapper'>
+      <aside className="sidebar">
+        <div className="sidebar-logo">
+          <h2>CoinVault</h2>
+        </div>
+        <nav className="sidebar-nav">
+          <ul>
+            <li className="nav-item active">
+              Dashboard
+            </li>
+          </ul>
+        </nav>
+      </aside>
 
-      <Search handleSearch={setSearch} />
+      <main className="main-content">
+        <section className="table-section">
+          <header className="content-header">
+            <h1>Dashboard</h1>
+            <Search handleSearch={setSearch} />
+          </header>
 
-      <SortButtons sortBy={sortBy} setSortBy={setSortBy} />
+          <SortButtons sortBy={sortBy} setSortBy={setSortBy} />
 
-      {loading ? (
-        <p>Fetching market data...</p>
-      ) : (
-        <CoinList items={sortedCoins} />
-      )}
+          {loading ? (
+            <p>Fetching market data...</p>
+          ) : (
+            <CoinList items={sortedCoins} />
+          )}
+
+        </section>
+      </main>
     </div>
   )
 }
