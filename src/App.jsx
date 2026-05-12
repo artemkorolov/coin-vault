@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import Coin from './components/Coin'
 import Search from './components/Search'
+import SortButtons from './components/SortButtons'
 import './App.css'
 
 function App() {
@@ -50,18 +51,7 @@ function App() {
 
       <Search handleSearch={setSearch} />
 
-      <div className="sort-buttons">
-        <button
-          className={sortBy === 'price' ? 'sort-btn active' : 'sort-btn'}
-          onClick={() => setSortBy('price')}>
-          Sort by Price
-        </button>
-        <button
-          className={sortBy === 'name' ? 'sort-btn active' : 'sort-btn'}
-          onClick={() => setSortBy('name')}>
-          Sort by Name
-        </button>
-      </div>
+      <SortButtons sortBy={sortBy} setSortBy={setSortBy} />
 
       {loading ? (
         <p>Fetching market data...</p>
