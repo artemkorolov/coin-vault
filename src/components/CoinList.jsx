@@ -8,6 +8,7 @@ function CoinList({ items }) {
 				coin.id && (
 					<Coin
 						key={coin.id}
+						id={coin.id}
 						image={coin.image}
 						name={coin.name}
 						price={coin.current_price}
