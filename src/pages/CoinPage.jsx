@@ -38,13 +38,13 @@ function CoinPage() {
 	return (
 		<div className="coin-page">
 			<img className="coin-image" src={image?.large} alt={name} width="100" />
-			<h1 className="coin-name">{name}</h1>
+			<h2 className="coin-page-name">{name}</h2>
 			
 			<p className="coin-symbol">Symbol: {symbol}</p>
 			<div className="coin-price-container">
 				<span className="price-label">Current Price:</span>
 			</div>
-			<span className="price-value">Current Price: ${price?.toLocaleString()}</span>
+			<span className="price-value">${price?.toLocaleString()}</span>
 		</div>
 	)
 }

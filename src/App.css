@@ -13,7 +13,7 @@
 	border-radius: 8px;
 }
 
-.sidebar-logo{
+.sidebar-logo {
 	margin-bottom: 20px;
 }
 
@@ -29,7 +29,7 @@
 	opacity: 0.8;
 }
 
-.nav-item.active{
+.nav-item.active {
 	color: #4ade80;
 }
 
@@ -135,7 +135,7 @@ p {
 	margin-bottom: 20px;
 }
 
-.pagination-btn{
+.pagination-btn {
 	background: none;
 	border: none;
 	color: #888;
@@ -144,11 +144,11 @@ p {
 	padding: 5px 10px;
 }
 
-.pagination-btn:hover{
+.pagination-btn:hover {
 	color: #fff;
 }
 
-.pagination-btn.active{
+.pagination-btn.active {
 	color: #4ade80;
 	border-bottom: 1px solid #4ade80;
 }
@@ -161,4 +161,43 @@ p {
 
 .coin-link-wrapper:hover {
 	background-color: #1a1a1a;
+}
+
+.coin-page {
+	min-width: 400px;
+	margin: 40px auto;
+	padding: 20px;
+	text-align: center;
+	border: 1px solid #eee;
+	border-radius: 12px;
+}
+
+.coin-image {
+	width: 100px;
+	height: 100px;
+	margin-bottom: 15px;
+}
+
+.coin-page-name {
+	font-size: 24px;
+	margin: 5px 0;
+	text-align: center;
+}
+
+.coin-symbol {
+	color: #666;
+	text-transform: uppercase;
+	font-size: 0.9rem;
+}
+
+.coin-price-container {
+	margin-top: 20px;
+	padding-top: 15px;
+	border-top: 1px solid #eee;
+}
+
+.price-value {
+	font-size: 1.5rem;
+	font-weight: bold;
+	color: #4ade80;
 }
