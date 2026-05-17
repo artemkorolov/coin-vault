@@ -13,13 +13,24 @@ function Home() {
 	const [currentPage, setCurrentPage] = useState(1)
 	const [coinsPerPage] = useState(10)
 	const [loading, setLoading] = useState(true)
+	const [error, setError] = useState(null)
 
 	const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
 	useEffect(() => {
 		const getCryptoData = async () => {
 			try {
+				setLoading(true)
+				setError(null)
+
 				const response = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=30&page=1&sparkline=false');
+
+				if (!response.ok) {
+					if (response.status === 429) {
+						throw new Error('Rate limit exceeded (429). Please wait a minute and refresh the page.');
+					}
+					throw new Error(`Server error: Status ${response.status}`)
+				}
 
 				const data = await response.json()
 
@@ -30,6 +41,7 @@ function Home() {
 			} catch (error) {
 				console.error("Something went wrong", error);
 
+				setError(error.message)
 				setLoading(false)
 			}
 		}
@@ -53,6 +65,25 @@ function Home() {
 	const indexOfLastCoin = currentPage * coinsPerPage
 	const indexOfFirstCoin = indexOfLastCoin - coinsPerPage
 	const currentCoins = sortedCoins.slice(indexOfFirstCoin, indexOfLastCoin)
+
+	if (loading) {
+		return <div style={{ textAlign: 'center', padding: '40px' }}>Loading</div>;
+	}
+
+	if (error) {
+		return (
+			<div className="error-container" style={{ textAlign: 'center', padding: '40px', color: '#e74c3c' }}>
+				<h2>Something went wrong</h2>
+				<p>{error}</p>
+				<button
+					onClick={() => window.location.reload()}
+					style={{ padding: '8px 16px', marginTop: '15px', cursor: 'pointer' }}
+				>
+					Try again
+				</button>
+			</div>
+		)
+	}
 
 	return (
 		<section className="table-section">
