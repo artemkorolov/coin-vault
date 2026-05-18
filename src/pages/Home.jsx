@@ -94,18 +94,18 @@ function Home() {
 
 			<SortButtons sortBy={sortBy} setSortBy={setSortBy} />
 
+			{loading ? (
+				<p>Fetching market data...</p>
+			) : (
+				<CoinList items={currentCoins} />
+			)}
+
 			<Pagination
 				coinsPerPage={coinsPerPage}
 				totalCoins={sortedCoins.length}
 				paginate={paginate}
 				currentPage={currentPage}
 			/>
-
-			{loading ? (
-				<p>Fetching market data...</p>
-			) : (
-				<CoinList items={currentCoins} />
-			)}
 
 		</section>
 	)

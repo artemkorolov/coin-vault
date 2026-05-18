@@ -130,9 +130,10 @@ p {
 
 .pagination-list {
 	display: flex;
+	justify-content: center;
 	list-style: none;
 	gap: 8px;
-	margin-bottom: 20px;
+	margin-top: 20px;
 }
 
 .pagination-btn {
