@@ -64,6 +64,9 @@ function CoinPage() {
 	const { name, symbol, market_data = {}, image = {} } = coin;
 	const price = market_data?.current_price?.usd;
 
+	const high24h = market_data?.high_24h?.usd
+	const low24h = market_data?.low_24h?.usd
+
 	return (
 		<div className="coin-page">
 			<img className="coin-image" src={image?.large} alt={name} width="100" />
@@ -74,6 +77,19 @@ function CoinPage() {
 				<span className="price-label">Current Price:</span>
 			</div>
 			<span className="price-value">${price?.toLocaleString()}</span>
+
+			<div className="coin-stats-24h">
+				<div className="stat-box">
+					<span>24h High</span>
+					<strong>{high24h && high24h > 0 ? `$${high24h.toLocaleString()}` : "—"}</strong>
+				</div>
+
+				<div className="stat-box">
+					<span>24h Low</span>
+					<strong>{low24h && low24h > 0 ? `$${low24h.toLocaleString()}` : "-"}</strong>
+				</div>
+			</div>
+
 		</div>
 	)
 }

@@ -201,3 +201,29 @@ p {
 	font-weight: bold;
 	color: #4ade80;
 }
+
+.coin-stats-24h{
+	margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	background-color: #1a1a1a;
+	padding: 15px;
+	border-radius: 8px;
+	border: 1px solid #333;
+}
+
+.stat-box{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 15px;
+}
+
+.stat-box span{
+	color: #aaa;
+}
+
+.stat-box strong {
+	font-size: 16px;
+}
