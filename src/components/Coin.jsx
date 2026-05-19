@@ -9,11 +9,14 @@ function Coin({ id, image, name, price, priceChange = 0 }) {
 			<div className="coin-item">
 				<img src={image} alt={name} />
 				<span className="coin-name">{name}</span>
-				<span className="coin-price">${price ? price.toLocaleString() : "0.00"}</span>
-				<span className={`coin-percent ${priceColor}`}>
-					{priceChange && priceChange > 0 ? "+" : ""}
-					{priceChange ? priceChange.toFixed(2) : "0.00"}%
-				</span>
+				<div className="coin-item-pricing">
+					<span className="coin-price">${price ? price.toLocaleString() : "0.00"}</span>
+					<span className={`coin-percent ${priceColor}`}>
+						{priceChange && priceChange > 0 ? "+" : ""}
+						{priceChange ? priceChange.toFixed(2) : "0.00"}%
+					</span>
+				</div>
+
 			</div>
 		</Link>
 	)
