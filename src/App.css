@@ -44,7 +44,7 @@
 .content-header {
 	display: flex;
 	justify-content: space-between;
-	margin-bottom: 20px;
+	margin-bottom: 30px;
 }
 
 p {
@@ -95,12 +95,12 @@ p {
 	display: flex;
 	gap: 10px;
 	margin-bottom: 20px;
-	justify-content: flex-end;
+	justify-content: flex-start;
 }
 
 .sort-btn {
 	color: #888;
-	margin: 10px;
+	margin-right: 20px;
 	cursor: pointer;
 	font-weight: 500;
 	background: none;
@@ -203,7 +203,7 @@ p {
 	color: #4ade80;
 }
 
-.coin-stats-24h{
+.coin-stats-24h {
 	margin-top: 20px;
 	display: flex;
 	flex-direction: column;
@@ -214,14 +214,14 @@ p {
 	border: 1px solid #333;
 }
 
-.stat-box{
+.stat-box {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	font-size: 15px;
 }
 
-.stat-box span{
+.stat-box span {
 	color: #aaa;
 }
 
