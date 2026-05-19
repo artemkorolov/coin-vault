@@ -255,7 +255,6 @@ p {
 	min-width: 150px;
 	justify-content: space-between;
 	display: flex;
-	/* gap: 10px; */
 	align-items: center;
 }
 
